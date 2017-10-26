@@ -33,9 +33,11 @@ public class ConnMySQL {
     public boolean conectar() {
         boolean isConect = true;
         try {
+            String driver = "com.mysql.jdbc.Driver";
+            Class.forName(driver);
             conexion = DriverManager.getConnection(this.url, this.user, this.pass);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getCause());
+            JOptionPane.showMessageDialog(null, e);
             System.out.println("El sistema no conecta a BD :" + this.database);
             isConect = false;
         }
